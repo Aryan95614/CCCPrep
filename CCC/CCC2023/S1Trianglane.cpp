@@ -6,43 +6,63 @@
 #define print std::cout <<
 #define end << endl;
 #define vi vector<int>
+#define elif else if
+#define into cin >>
 
 using namespace std;
 
 int main () {
     fastio;
+    vi topFloor = vi{};
+    vi bottomFloor = vi{};
 
-    int tiles = 5; // triangles put in the row
+    int tiles = 0;
+    into tiles;
+
+    for(int i = 0; i < tiles; i++) {
+        int number = 0;
+        into number;
+        topFloor.push_back(number);
+    }
+    for(int i = 0; i < tiles; i++) {
+        int number = 0;
+        into number;
+        bottomFloor.push_back(number);
+    }
+    topFloor.push_back(0);
+    bottomFloor.push_back(0);
+
     int sticks = 0; // sticks used inside
-
-    vi topFloor =    vi{1, 1, 0, 0, 0};
-    vi bottomFloor = vi{1, 0, 0, 0, 0};
 
     // check top floor with next oreo
     for(int i = 0; i < topFloor.size()-1; i++) {
         int element = topFloor.at(i);
         int nextElement = topFloor.at(i+1);
 
-        if (nextElement == 1 and element == 1) {
+        if(element == 1) {
+            sticks += 3;
+        }
+        if (element == 1 && nextElement==1) {
             sticks -=2;
         }
     }
-    print sticks end
+
     // check bottom floor with next oreo
     for(int i = 0; i < bottomFloor.size()-1; i++) {
         int element = bottomFloor.at(i);
         int nextElement = bottomFloor.at(i+1);
-        if (element == 1) {
+
+        if(element == 1) {
             sticks += 3;
         }
-        if (nextElement == 1 and element == 1) {
+        if (element == 1 && nextElement==1) {
             sticks -=2;
         }
     }
-    print sticks end
+
 
     for(int i = 0; i < bottomFloor.size()-1; i++) {
-        if (i % 2 == 0 or i == 0) {
+        if (topFloor.at(i) == 1 and (i % 2 == 0 or i == 0)) {
             if (topFloor.at(i) == bottomFloor.at(i)) {
                 sticks -= 2;
             }
