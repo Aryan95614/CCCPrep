@@ -100,8 +100,8 @@ int main () {
 
 
     // Get the concatenated string and print it without line breaks
+
     string outputString = outputStream.str();
     cout << outputString << endl;
-
 
 }
