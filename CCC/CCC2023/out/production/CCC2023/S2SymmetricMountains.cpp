@@ -90,7 +90,7 @@ int main () {
 
 
     for (int element: outputs) {
-        cout << element << std::flush;
+        cout << element << " " << std::flush;
     }
 
 }

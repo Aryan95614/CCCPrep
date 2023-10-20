@@ -66,11 +66,42 @@ int main () {
     into numMountains;
     vi heights = vi{};//vi{3, 1, 4, 1, 5, 9, 2};
 
-    for (int i = 0; i < numMountains; i++) {
-        int thing = 0;
-        into thing;
-        heights.push_back(thing);
+    string answer;
+    into answer;
+
+    answer.push_back(' ');
+    answer.push_back('0');
+
+    char delim = ' ';
+    for (int i = 0; i <10;i++) {
+        // Split the answer string by delimiter
+        vector<int> results;
+        stringstream ss(answer);
+
+        string token;
+        while (getline(ss, token, delim)) {
+            results.push_back(stoi(token));
+        }
+
+        // Ensure we have at least two values
+        if (results.size() == 2) {
+            break;
+        }
+
+        int input = results[0];
+        int size = results[1];
+
+        // Remove processed part of the answer string
+        answer = answer.substr(answer.find(delim) + 1);
+
+        heights.push_back(input);
+        //cout << inputs.at(i) << endl;
     }
+
+    for (int value : heights) {
+        cout << value << endl;
+    }
+
 
     vi outputs = vi{0};
 
