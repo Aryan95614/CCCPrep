@@ -7,6 +7,7 @@
 #include <vector>
 #include <algorithm>
 #include<iomanip>
+#include <unistd.h>
 
 using namespace std;
 
@@ -90,14 +91,17 @@ int main () {
 
     outputs.push_back(asymmetric(heights));
 
-    string answer = "";
 
+    stringstream outputStream;
 
     for (int element : outputs) {
-        answer.append(to_string(element) + " ");
+        outputStream << element << " ";
     }
-    int s = answer.length();
 
-    cout << setw(s) << left << answer << endl;
+
+    // Get the concatenated string and print it without line breaks
+    string outputString = outputStream.str();
+    cout << outputString << endl;
+
 
 }
