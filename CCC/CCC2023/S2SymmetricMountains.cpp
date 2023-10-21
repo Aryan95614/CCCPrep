@@ -13,7 +13,7 @@ using namespace std;
 
 #define fastio ios_base::sync_with_stdio(0); cin.tie(0);
 #define vi vector<int>
-#define into cin >>
+
 #define print cout <<
 
 vi subsize(vi& vector1, int size, int starting) {
@@ -56,50 +56,48 @@ int asymmetric(vi subset) {
 }
 
 int getLimit(int number, int limit) {
-    return limit-number+1;
+    return limit-number;
 }
 
 int main () {
     fastio;
 
     int numMountains;
-    into numMountains;
+    cin >> numMountains;
     vi heights = vi{};//vi{3, 1, 4, 1, 5, 9, 2};
 
     string answer;
-    into answer;
+    cin >> ws;
+    getline(cin, answer);
 
     answer.push_back(' ');
     answer.push_back('0');
 
     char delim = ' ';
-    for (int i = 0; i <10;i++) {
+
+
+    for (;;){//int i = 0; i <numMountains;i++) {
         // Split the answer string by delimiter
         vector<int> results;
         stringstream ss(answer);
 
         string token;
         while (getline(ss, token, delim)) {
-            results.push_back(stoi(token));
+            int it = stoi(token);
+            results.push_back(it);
         }
 
         // Ensure we have at least two values
-        if (results.size() == 2) {
+        if (results.size() <= 2) {
             break;
         }
-
         int input = results[0];
-        int size = results[1];
 
         // Remove processed part of the answer string
         answer = answer.substr(answer.find(delim) + 1);
 
         heights.push_back(input);
-        //cout << inputs.at(i) << endl;
-    }
 
-    for (int value : heights) {
-        cout << value << endl;
     }
 
 
@@ -111,8 +109,10 @@ int main () {
         vi temp1 = vi{};
         for (int startings = 0; startings < getLimit(sizes, numMountains); startings += 1) {
             int element = 0;
-            vi temp = subsize(heights, sizes, startings);
-            temp1.push_back(asymmetric(temp));
+            vi temp(heights.begin()+startings, heights.begin()+startings+sizes);
+            cout << temp.size() << endl;
+//            vi temp = subsize(heights, sizes, startings); this is wrong
+//            temp1.push_back(asymmetric(temp));
         }
         outputs.push_back(*min_element(temp1.begin(), temp1.end()));
     }
@@ -124,4 +124,5 @@ int main () {
         cout << element << " " << std::flush;
     }
 
+    return 0;
 }
