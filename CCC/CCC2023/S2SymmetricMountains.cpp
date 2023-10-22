@@ -102,15 +102,19 @@ int main () {
 
 
     vi outputs = vi{0};
-
+    for(auto i: heights) {
+        cout << i << " " << flush;
+    }
 
 
     for (int sizes = 2; sizes < numMountains; sizes++) {
         vi temp1 = vi{};
-        for (int startings = 0; startings < getLimit(sizes, numMountains); startings += 1) {
+        for (int startings = 0; startings < numMountains-sizes; startings += 1) {
             int element = 0;
             vi temp(heights.begin()+startings, heights.begin()+startings+sizes);
-            cout << temp.size() << endl;
+            for(int elementd : temp) {
+                cout << elementd << " ";
+            }
 //            vi temp = subsize(heights, sizes, startings); this is wrong
 //            temp1.push_back(asymmetric(temp));
         }
