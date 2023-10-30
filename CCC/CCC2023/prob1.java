@@ -26,13 +26,25 @@ public class prob1 {
     }
 
     public static void main(String[] args) {
-        int size = 7;
+        Scanner input = new Scanner(System.in);
+        int size = input.nextInt();
+        input.nextLine();
         final int result = size;
-        Vector<Integer> inputs = new Vector<Integer>(){{
-            for(int i = 0; i < 7; i++) {
-                add(i);
-            }
-        }};
+/*
+7
+2 4 9 12 15 20 24
+ */
+
+        Vector<Integer> inputs = new Vector<Integer>();
+
+        String tempInput=input.nextLine();
+
+        String[] arrofStr= tempInput.split(" ");
+
+        for(String element : arrofStr) {
+
+            inputs.add(Integer.parseInt(element));
+        }
 
         Vector<Vector<Vector<Integer>>> arr = new Vector<>();
         for (int i = 0; i < size; i++) {
