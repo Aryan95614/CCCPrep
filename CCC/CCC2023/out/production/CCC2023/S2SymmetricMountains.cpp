@@ -1,4 +1,3 @@
-
 //
 // Created by aryan on 2023-10-18.
 //
@@ -64,7 +63,13 @@ int main () {
 
     int numMountains;
     into numMountains;
-    vi heights = vi{};//vi{3, 1, 4, 1, 5, 9, 2};
+    cout << endl;
+
+    if (numMountains == 0 or numMountains == 1) {
+        cout << 0 << endl;
+        return 0;
+    }
+    vi heights = vi{};
 
     for (int i = 0; i < numMountains; i++) {
         int thing = 0;
