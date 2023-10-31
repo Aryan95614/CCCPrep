@@ -25,6 +25,10 @@ public class prob1 {
         return arr;
     }
 
+    public static void argo() {
+
+    }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int size = input.nextInt();

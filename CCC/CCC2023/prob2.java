@@ -80,26 +80,61 @@ public class prob2 {
 
         }
 
+        values.add(bottom);
+        values.add(bottom1);
         // =-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-
 
-        int[] even4 = new int[bottom.length-2];
+        for (int k = 0; k < 100; k++) {
+            int[] newArray = new int[abs(values.get(values.size()-1).length-k-1)];
 
-        for (int i = 0; i < even4.length; i++) {
-            even4[i] = bottom[i+1] + abs(arr[i+3] - arr[i]);
+            int[] malleuable = values.get(values.size()-2);
+
+            for (int i = 0; i < newArray.length; i++) {
+                newArray[i] = malleuable[i + 1] + abs(arr[i + 3 + k] - arr[i]);
+
+            }
+
+            values.add(newArray);
+
+
+        }
+        //
+
+        int[] newArray = new int[abs(values.get(values.size()-1).length-100)];
+        //System.out.println(newArray.length);
+        int[] malleuable = values.get(values.size()-2);
+        //System.out.println(malleuable.length);
+        for (int i = 0; i < newArray.length-1; i++) {
+            System.out.println(malleuable[i+1]);
+            newArray[i] = malleuable[i + 1] + abs(arr[i + 3 + 100] - arr[i]);
 
         }
 
-        System.out.println(findMin(even4));
+        values.add(newArray);
+        //
+        System.out.println(0/0);
+        for (int[] elements: values) {
 
-        // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        int[] odd5 = new int[bottom1.length-2];
-
-        for (int i = 0; i < odd5.length; i++) {
-            odd5[i] = bottom1[i+1] + abs(arr[i+4] - arr[i]);
-
+            System.out.println(findMin(elements) + " with length of " + elements.length);
         }
 
-        System.out.println(findMin(odd5));
-        System.out.println();
+//        int[] even4 = new int[bottom.length-2];
+//
+//        for (int i = 0; i < even4.length; i++) {
+//            even4[i] = bottom[i+1] + abs(arr[i+3] - arr[i]);
+//
+//        }
+//
+//        System.out.println(findMin(even4));
+//
+//        // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+//        int[] odd5 = new int[bottom1.length-2];
+//
+//        for (int i = 0; i < odd5.length; i++) {
+//            odd5[i] = bottom1[i+1] + abs(arr[i+4] - arr[i]);
+//
+//        }
+
+
     }
 }
