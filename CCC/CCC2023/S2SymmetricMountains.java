@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Vector;
 import java.util.*;
-class Main {
+class Maain {
     public static int findMinValue(Vector<Integer> vector) {
         int minValue = vector.get(0);
 
@@ -11,7 +11,10 @@ class Main {
                 minValue = currentValue;
             }
         }
-
+/**
+ * 7
+3 1 4 1 5 9 2
+ */
         return minValue;
     }
     public static Vector<Integer> subsize(Vector<Integer> vector1, int size, int starting) {
