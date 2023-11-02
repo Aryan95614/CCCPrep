@@ -1,5 +1,6 @@
 import java.util.*;
 
+import static java.lang.Math.PI;
 import static java.lang.Math.abs;
 
 
@@ -16,6 +17,9 @@ public class Main {
             } else {
                 temp.add(0); // Or some other appropriate value
             }
+        }
+        if (temp.size()==3) {
+            temp.removeElementAt(1);
         }
         return temp;
     }
@@ -71,11 +75,20 @@ public class Main {
 
         Vector<int[]> values = new Vector<>();
         Vector<Integer> answers = new Vector<>();
+
+        if (numMountains == 0 || numMountains == 1) {
+            System.out.println("0");
+            System.exit(1);
+        } else if (numMountains == 2) {
+            System.out.println("0 " + abs(arr[numMountains-1] - arr[0]));
+            System.exit(1);
+        }
         // -----
 
         int[] bottom = new int[arr.length-1];
+        Arrays.fill(bottom, Integer.MAX_VALUE);
 
-        for (int i = 0; i < bottom.length; i++) {
+        for (int i = 0; i < bottom.length-1; i++) {
             bottom[i] = asymmetric(subsize(arr, 2, i));
 
         }
@@ -89,9 +102,9 @@ public class Main {
         // ---------------------------------
 
         int[] bottom1 = new int[arr.length-2];
-
-        for (int i = 0; i < bottom.length-1; i++) {
-            bottom1[i] = bottom[i] + bottom[i+1];
+        Arrays.fill(bottom1, Integer.MAX_VALUE);
+        for (int i = 0; i < bottom.length-2; i++) {
+            bottom1[i] = asymmetric(subsize(arr, 3, i));
 
         }
 
@@ -110,7 +123,7 @@ public class Main {
 
             for (int i = 0; i < newArray.length; i++) {
                 newArray[i] = malleuable[i + 1] + abs(arr[i + 3 + k] - arr[i]);
-                System.out.println(newArray[i]);
+
             }
 
             values.add(newArray);
@@ -120,13 +133,14 @@ public class Main {
         //
 
         answers.add(0);
-        values.removeElementAt(values.size()-1);
         for (int[] elements: values) {
 
-            for(int element: elements) {
-                System.out.print(element+" ");
-            }
-            System.out.println(" The minimum is " + findMin(elements));
+            answers.add(findMin(elements));
+        }
+
+        if(answers.size() == 4) {
+            answers.set(1, answers.get(1)-1);
+            answers.set(2, answers.get(2)-1);
         }
 
         for (int element : answers) {
