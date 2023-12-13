@@ -17,7 +17,7 @@ void combinationUtil(int arr[], int data[],
                      int start, int end,
                      int index, int r)
 {
-    // Current combination is ready
+    // Current combination is readyg
     // to be printed, print it
     if (index == r)
     {
