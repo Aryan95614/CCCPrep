@@ -1,84 +1,94 @@
-//
-// Created by aryan on 2023-10-30.
-//
 
 #include <iostream>
 #include <vector>
-#include <bits/stdc++.h>
 
+#define print cout <<
+#define endof << endl;
 #define vi vector<int>
-#define vii vector<vector<int>>
 
 using namespace std;
 
 
 
-void combinationUtil(int arr[], int data[],
-                     int start, int end,
-                     int index, int r)
-{
-    // Current combination is readyg
-    // to be printed, print it
-    if (index == r)
-    {
-        for (int j = 0; j < r; j++)
-            cout << data[j] << " ";
-        cout << endl;
-        return;
-    }
+struct cell{
+    int X;
+    int Y;
+    int value;
 
-    for (int i = start; i <= end &&
-                        end - i + 1 >= r - index; i++)
-    {
-        data[index] = arr[i];
-        combinationUtil(arr, data, i+1,
-                        end, index+1, r);
+    template <size_t rows, size_t columns>
+    void getB(int X_coor, int Y_coor, int (&array)[rows][columns]) {
+        X = X_coor;
+        Y = Y_coor;
+        value = array[X][Y];
     }
+};
+
+template <size_t rows, size_t columns>
+vi AllFactors(int number, int (&array)[rows][columns], vi &toVisitNodes) {
+    vector<vi> iterations = vector<vi>();
+
+
+    //somehow clean this process up to get all iterations, maybe
+    //get two factos, give the 1 x 3 and 3 x 1 version and continue
+    // also factors have to be less than 3 or 4 mutliped
+    cell first{};
+    first.getB(0, 2, array);
+
+    cell second{};
+    second.getB(2, 0, array);
+
+
+    toVisitNodes.push_back(first.value);
+    toVisitNodes.push_back(second.value);
+    // we explore the factors
+
+    // ----
+
+    cell third{};
+    third.getB(1, 2, array);
+
+    cell fourth{};
+    fourth.getB(2, 1, array);
+
+    cell fifth{}; // check if same value
+    fifth.getB(1, 3, array);
+
+    toVisitNodes.push_back(third.value);
+    toVisitNodes.push_back(fourth.value);
+    toVisitNodes.push_back(fifth.value);
+
+    // find the recursion in this
+
+    print third.value endof
+    print fourth.value endof
+    print fifth.value endof
+
+    return vi{};
 }
 
-void printCombination(int arr[], int n, int r)
-{
-    // A temporary array to store
-    // all combination one by one
-    int data[r];
-
-    // Print all combination using
-    // temporary array 'data[]'
-    combinationUtil(arr, data, 0, n-1, 0, r);
-}
-
-
-int[] factors(int number) {
-    vi factor = vi{1};
-
-    for( int i = 2; i < (number+1) / 2; i++ )
-        if (number % i == 0)
-            factor.push_back(i);
-
-    factor.push_back(number);
-
-    const int size = factor.size();
-    int results[size];
-
-    for (int i = 0; i < size; i++) {
-        results[i] = factor.at(i);
-    }
-
-
-    return results;
-}
 int main () {
+
     const int rows = 3;
     const int columns = 4;
 
-    int arr[rows][columns] = {{3, 10, 8, 14},
-                              {1, 11, 12, 12},
-                              {6, 2,  3,  9}};
+    int outputs[rows][columns] = {{3, 10, 8, 14},
+                                  {1, 11,12, 12},
+                                  {6,  2, 3,  9}};
 
 
-    int goal = 10;
+    cell StartingLocation;
+    vi visitedNodes = vi{};
+    vi toVisitNodes = vi{};
 
-    factors(goal)
+    StartingLocation.X = 0;
+    StartingLocation.Y = 0;
+    StartingLocation.value = outputs[StartingLocation.X][StartingLocation.Y];
+
+    // Put the StartingLocation.value into visitied Nodes
+    vi result = AllFactors(StartingLocation.value, outputs, toVisitNodes);
 
 
+
+    //print StartingLocation.value endof
+    return 0; // has to be deleted if this doesn't fucking work.
 }
