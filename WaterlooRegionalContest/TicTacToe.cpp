@@ -75,24 +75,51 @@ bool winnable(vector<vector<int>> &alls) {
 }
 
 int main() {
+    cin.tie(0);
+    //
+    vector<string> consoleOutputs;
+
+    //x can win
+    //no winning move
+    //o can win
 
     int numPuzzles = 0;
     cin >> numPuzzles;
 
     vector<int> wins;
 
-    string lines[(numPuzzles*2)+numPuzzles];
+    int totalInputs = (numPuzzles*3)+numPuzzles+1;
+    string lines[totalInputs];
 
-    for (int i = 0; i < numPuzzles; i++) {
-        string nextLine;
-        cin >> nextLine;
-
-        lines[i] = nextLine;
+    for (int i = 0; i < totalInputs; i++) {
+        getline(cin, lines[i]);
     }
 
-    for(string thing: lines) {
-        cout << thing << endl;
+    // Display the collected lines
+    for (int i = 1; i <= numPuzzles; i++) {
+
+        char chosenWinningElement = lines[4*i][0];
+        char notChosen = 'o'==chosenWinningElement? 'x':'o';
+        int first = lines[(4*i)-3][0] == chosenWinningElement ? 1: lines[(4*i)-3][0] ==notChosen ? 0: 2;
+        int second;
+        int third;
+        int fourth;
+        int fifth;
+        int sixth;
+        int seventh;
+        int eighth;
+        int ninth;
+        vector<vector<int>> components = {{first, second, third},
+                                          {fourth, fifth, sixth},
+                                          {seventh, eighth, ninth}};
+        int outcome = winnable(components);
+        if (outcome) {
+            consoleOutputs.push_back(chosenWinningElement+" can win");
+        } else {
+            consoleOutputs.push_back("no winning move");
+        }
     }
+
 
     vector<vector<int>> outputs = {{1, 0, 0},
                                    {0, 2, 1},
