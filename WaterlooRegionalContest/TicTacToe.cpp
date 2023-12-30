@@ -101,31 +101,39 @@ int main() {
         char chosenWinningElement = lines[4*i][0];
         char notChosen = 'o'==chosenWinningElement? 'x':'o';
         int first = lines[(4*i)-3][0] == chosenWinningElement ? 1: lines[(4*i)-3][0] ==notChosen ? 0: 2;
-        int second;
-        int third;
-        int fourth;
-        int fifth;
-        int sixth;
-        int seventh;
-        int eighth;
-        int ninth;
+        int second = lines[(4*i)-3][1] == chosenWinningElement ? 1: lines[(4*i)-3][1] ==notChosen ? 0: 2;
+        int third = lines[(4*i)-3][2] == chosenWinningElement ? 1: lines[(4*i)-3][2] ==notChosen ? 0: 2;
+
+        int fourth = lines[(4*i)-2][0] == chosenWinningElement ? 1: lines[(4*i)-2][0] ==notChosen ? 0: 2;
+        int fifth= lines[(4*i)-2][1] == chosenWinningElement ? 1: lines[(4*i)-2][1] ==notChosen ? 0: 2;
+        int sixth= lines[(4*i)-2][2] == chosenWinningElement ? 1: lines[(4*i)-2][2] ==notChosen ? 0: 2;
+
+        int seventh=lines[(4*i)-1][0] == chosenWinningElement ? 1: lines[(4*i)-1][0] ==notChosen ? 0: 2;
+        int eighth=lines[(4*i)-1][1] == chosenWinningElement ? 1: lines[(4*i)-1][1] ==notChosen ? 0: 2;
+        int ninth=lines[(4*i)-1][2] == chosenWinningElement ? 1: lines[(4*i)-1][2] ==notChosen ? 0: 2;
         vector<vector<int>> components = {{first, second, third},
                                           {fourth, fifth, sixth},
                                           {seventh, eighth, ninth}};
         int outcome = winnable(components);
+
+        string expected(1, chosenWinningElement);
         if (outcome) {
-            consoleOutputs.push_back(chosenWinningElement+" can win");
+            consoleOutputs.emplace_back(expected+" can win");
         } else {
-            consoleOutputs.push_back("no winning move");
+            consoleOutputs.emplace_back("no winning move");
         }
     }
 
 
-    vector<vector<int>> outputs = {{1, 0, 0},
-                                   {0, 2, 1},
-                                   {1, 0, 1}};
-    wins.push_back(winnable(outputs));
+//    vector<vector<int>> outputs = {{1, 0, 0},
+//                                   {0, 2, 1},
+//                                   {1, 0, 1}};
+//
+//    wins.push_back(winnable(outputs));
 
+    for (const string element: consoleOutputs) {
+        cout << element << endl;
+    }
 
 
 
