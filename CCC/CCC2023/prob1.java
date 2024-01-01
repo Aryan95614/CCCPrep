@@ -1,76 +1,92 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <bits/stdc++.h>
 
-import java.util.*;
+using namespace std;
 
+bool couldWin(int arr[3]) {
+    int twos = 0;
+    int ones = 0;
 
-public class prob1 {
-    public static void printArray(Vector<Integer>[] arr, int size) {
-        for (int i = 0; i < size; i++) {
-            System.out.print("\n < -- > ");
-
-            System.out.print(arr[i]);
-        }
-        System.out.println(); // Print a newline to complete the output
+    if (arr[0] == 1) {
+        ones += 1;
+    }
+    if (arr[0] == 2) {
+        twos += 1;
     }
 
-    public static Vector<Vector<Vector<Integer>>> addAll(int size, Vector<Vector<Vector<Integer>>> arr, Vector<Integer> inputs, int starting) {
-        for(int i = 0; i < size-1; i++) {
-            Vector<Integer> paths = new Vector<Integer>();
-
-            for (int j = 1; j <= size - i; j++) {
-                paths.add(inputs.get(j - 1));
-            }
-            arr.get(size-paths.size()+starting).add(paths);
-        }
-
-        return arr;
+    if (arr[1] == 1) {
+        ones += 1;
+    }
+    if (arr[1] == 2) {
+        twos += 1;
     }
 
-    public static void argo() {
-
+    if (arr[2] == 1) {
+        ones += 1;
+    }
+    if (arr[2] == 2) {
+        twos += 1;
     }
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int size = input.nextInt();
-        input.nextLine();
-        final int result = size;
-/*
-7
-2 4 9 12 15 20 24
- */
+    if ( ones == 2 && twos == 1) {
+        return true;
+    }
+    return false;
+}
 
-        Vector<Integer> inputs = new Vector<Integer>();
-
-        String tempInput=input.nextLine();
-
-        String[] arrofStr= tempInput.split(" ");
-
-        for(String element : arrofStr) {
-
-            inputs.add(Integer.parseInt(element));
-        }
-
-        Vector<Vector<Vector<Integer>>> arr = new Vector<>();
-        for (int i = 0; i < size; i++) {
-            arr.add(new Vector<>());
-        }
-
-        for(int k = 0; k < result;k++){
-            arr = addAll(size, arr, inputs, k);
-
-            inputs.removeElementAt(0);
-            size -= 1;
-        }
-            //        arr = addAll(size, arr, inputs, 0);
+bool possibleCombinations(int a[3][3]) {
+    int possibleCombinations[8][3] = {
+            {a[0][0], a[1][0], a[2][0]}, // 0
+            {a[0][1], a[1][1], a[2][1]}, // 1
+            {a[0][2], a[1][2], a[2][2]}, // 2
             //
-            //        inputs.removeElementAt(0);
-            //        size -= 1;
-            //        arr = addAll(size, arr, inputs, 1);
+            {a[0][0], a[0][1], a[0][2]}, // 3
+            {a[1][0], a[1][1], a[1][2]}, // 4
+            {a[2][0], a[2][1], a[2][2]}, // 5
+            //
+            {a[0][0], a[1][1], a[2][2]}, // 6
+            {a[0][2], a[1][1], a[2][0]}, // 7
 
-        for(Vector<Vector<Integer>> element : arr) {
-            System.out.println(element);
+    };
+
+    bool win = false;
+
+    for (int i = 0; i <= 7; i++) {
+        if (!win) {
+            win = couldWin(a[i]);
         }
+        else {
+            break;
 
+        }
+    }
+    return win;
+}
+int main() {
+
+//    int iterations = 0;
+//    cin >> iterations;
+
+    string input1 = "xooo.xx.x";
+    char choice = "x can move"[0];
+    int a[3][3];
+
+    for (int i = 0; i < 9; i++) {
 
     }
+
+
+
+
+
+
+    bool canWin = false;
+
+
+
+    cout << possibleCombinations(a) << endl;
+
+
 }

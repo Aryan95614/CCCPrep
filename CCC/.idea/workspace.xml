@@ -3,24 +3,26 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5455def3-be6f-4bdd-a220-45df11322a1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CCC2020/.idea/CCC2020.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CCC2021/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CCC2021/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CCC2021/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CCC2021/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CCC2021/CCC2021.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CCC2021/S1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CCC2021/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../WaterlooRegionalContest/TicTacToe.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CCC2021/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CCC2021/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CCC2023/Competiton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CCC2023/Competiton.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CCC2023/prob1.java" beforeDir="false" afterPath="$PROJECT_DIR$/CCC2023/prob1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -36,28 +38,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "RUNTHISFILE",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/Users/aryan/CLionProjects/CCCPrep/CCC/CCC2021",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;RUNTHISFILE&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/aryan/CLionProjects/CCCPrep/WaterlooRegionalContest&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\aryan\CLionProjects\CCCPrep\CCC\CCC2023" />
@@ -75,6 +80,9 @@
       <workItem from="1698955065893" duration="48000" />
       <workItem from="1702436271291" duration="97000" />
       <workItem from="1702436612088" duration="285000" />
+      <workItem from="1703887239788" duration="39000" />
+      <workItem from="1703889838946" duration="150000" />
+      <workItem from="1703909181840" duration="150000" />
     </task>
     <servers />
   </component>
